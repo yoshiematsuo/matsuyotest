@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;matsuyo-test5&gt;</title>
+    <title>&lt;matsuyo-test6&gt;</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,6 +43,10 @@ button {
     <div><p>下のボックスカラー: <select id="variant"></select></div>
   </div>
 
+  <div class="controls">
+    <div><p>上のボックスカラー: <select id="variant"></select></div>
+  </div>
+
       <button slot="ar-button" id="ar-button">
           3D-AR表示
       </button>
@@ -53,7 +57,7 @@ button {
     </model-viewer>  
 
 <script>
-const modelViewerVariants = document.querySelector("model-viewer#Box001");
+
 const modelViewerVariants = document.querySelector("model-viewer#Box002");
 const select = document.querySelector('#variant');
 
