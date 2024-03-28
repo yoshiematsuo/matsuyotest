@@ -33,29 +33,30 @@ button {
     </style>
   </head>
   <body>
+
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="Box002"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
+
+    <model-viewer id="Box001"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
   <div class="controls">
-    <div><p>カラー: <select id="variant"></select></div>
+    <div><p>上のボックスカラー: <select id="variant"></select></div>
   </div>
+
+ <model-viewer id="Box002"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
+  <div class="controls">
+    <div><p>下のボックスカラー: <select id="variant"></select></div>
+  </div>
+
       <button slot="ar-button" id="ar-button">
           3D-AR表示
       </button>
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
+
     </model-viewer>  
+
 <script>
+const modelViewerVariants = document.querySelector("model-viewer#Box001");
 const modelViewerVariants = document.querySelector("model-viewer#Box002");
 const select = document.querySelector('#variant');
 
@@ -80,10 +81,6 @@ select.addEventListener('input', (event) => {
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js">
      </script>
 
-<!-- Main Container Ends -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap-4.4.1.js"></script>
 
   </body>
 </html>
