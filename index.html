@@ -34,7 +34,7 @@ button {
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="Box001"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
+    <model-viewer id="Box002"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
   <div class="controls">
     <div><p>カラー: <select id="variant"></select></div>
   </div>
@@ -46,7 +46,7 @@ button {
       </div>
     </model-viewer>  
 <script>
-const modelViewerVariants = document.querySelector("model-viewer#Box001");
+const modelViewerVariants = document.querySelector("model-viewer#Box002");
 const select = document.querySelector('#variant');
 
 modelViewerVariants.addEventListener('load', () => {
@@ -64,7 +64,7 @@ modelViewerVariants.addEventListener('load', () => {
 select.addEventListener('input', (event) => {
   modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
 });
-     </script>    
+</script>    
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js">
