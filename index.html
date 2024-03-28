@@ -1,67 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;matsuyo-test&gt;3</title>
+    <title>&lt;model-viewer&gt; template</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
-    <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
-    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-  <style>
-.controls {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  bottom: 8px;
-  left: 8px;
-}
-
-#texture-name,
-#image-name {
-  font-size: 0.8em;
-}
-
-button {
-  font-size: 1.3em;
-  margin: 0 0.25em;
-}
-  </style>
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="Box001"src="test_box_3_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
-  <div class="controls">
-    <div><p>カラー: <select id="variant"></select></div>
-  </div>
+    <model-viewer src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
       <button slot="ar-button" id="ar-button">
-          3D-AR表示
+          View in your space
       </button>
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
     </model-viewer>  
-<script>
-const modelViewerVariants = document.querySelector("model-viewer#Box001");
-const select = document.querySelector('#variant');
-
-modelViewerVariants.addEventListener('load', () => {
-  const names = modelViewerVariants.availableVariants;
-  for (const name of names) {
-    const option = document.createElement('option');
-    option.value = name;
-    option.textContent = name;
-    select.appendChild(option);
-  }
-  // Adds a default option.
-
-});
-
-select.addEventListener('input', (event) => {
-  modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
-});
-</script>    
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
