@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;matsuyo-test8&gt;</title>
+    <title>&lt;matsuyo-test9&gt;</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +55,7 @@ button {
   </div>
 
   <div class="controls2">
-    <div><p>下のボックスカラー: <select id="variant"></select></div>
+    <div><p>下のボックスカラー: <select id="variant2"></select></div>
   </div>
 
       <button slot="ar-button" id="ar-button">
@@ -90,6 +90,31 @@ select.addEventListener('input', (event) => {
   modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
 });
 </script>    
+
+<script>
+
+const modelViewerVariants = document.querySelector("model-viewer#Box002");
+const select = document.querySelector('#variant2');
+
+
+
+modelViewerVariants.addEventListener('load', () => {
+  const names = modelViewerVariants.availableVariants;
+  for (const name of names) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  }
+  // Adds a default option.
+
+});
+
+select.addEventListener('input', (event) => {
+  modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
+});
+</script>    
+
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js">
