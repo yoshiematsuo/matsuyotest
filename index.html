@@ -1,27 +1,15 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;matsuyo-test8&gt;</title>
+    <title>&lt;model-viewer&gt; template6-6</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-
-    <style>
-.controls1 {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  bottom: 38px;
-  left: 8px;
-}
-
-.controls2 {
+  <style>
+.controls {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -39,40 +27,59 @@ button {
   font-size: 1.3em;
   margin: 0 0.25em;
 }
-    </style>
+  </style>
   </head>
   <body>
-
     <!-- <model-viewer> HTML element -->
-
-
-
- <model-viewer id="Box002"src="test_box_4_bld.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="commerce" poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a BOX">
-
-
-  <div class="controls1">
-    <div><p>上のボックスカラー: <select id="variant1"></select></div>
+    <model-viewer id="tobira" src="test_hako_003.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a tobira">
+  <div class="controls">
+    <div><p>扉変更: <select id="variant"></select></div>
   </div>
-
-  <div class="controls2">
-    <div><p>下のボックスカラー: <select id="variant2"></select></div>
-  </div>
-
       <button slot="ar-button" id="ar-button">
-          3D-AR表示
+          3D-AR
       </button>
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
-
-    </model-viewer>  
-
+	</model-viewer> 
+	  <br>
+	  
+    <model-viewer id="hako" src="test_hako_003.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" ar alt="A 3D model of a hako">
+  <div class="controls">
+    <div><p>　　　　　　　　本体変更: <select id="variant2"></select></div>
+  </div>
+      <button slot="ar-button" id="ar-button">
+          3D-AR
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+	</model-viewer> 
+	  <br>
+	  
+	  
 <script>
+const modelViewerVariants = document.querySelector("model-viewer#tobira");
+const select = document.querySelector('#variant');
 
-const modelViewerVariants = document.querySelector("model-viewer#Box001");
-const select = document.querySelector('#variant1');
+modelViewerVariants.addEventListener('load', () => {
+  const names = modelViewerVariants.availableVariants;
+  for (const name of names) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  }
+  // Adds a default option.
 
-const modelViewerVariants = document.querySelector("model-viewer#Box002");
+});
+
+select.addEventListener('input', (event) => {
+  modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
+});
+</script> 
+<script>
+const modelViewerVariants = document.querySelector("model-viewer#hako");
 const select = document.querySelector('#variant2');
 
 modelViewerVariants.addEventListener('load', () => {
@@ -90,12 +97,9 @@ modelViewerVariants.addEventListener('load', () => {
 select.addEventListener('input', (event) => {
   modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
 });
-</script>    
+</script>  
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js">
-     </script>
-
-
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </body>
 </html>
