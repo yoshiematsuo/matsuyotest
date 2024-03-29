@@ -55,7 +55,7 @@ button {
   </div>
 
   <div class="controls2">
-    <div><p>下のボックスカラー: <select id="variant2"></select></div>
+    <div><p>下のボックスカラー: <select id="variant"></select></div>
   </div>
 
       <button slot="ar-button" id="ar-button">
@@ -72,8 +72,7 @@ button {
 const modelViewerVariants = document.querySelector("model-viewer#Box001");
 const select = document.querySelector('#variant');
 
-const modelViewerVariants = document.querySelector("model-viewer#Box002");
-const select = document.querySelector('#variant2');
+
 
 modelViewerVariants.addEventListener('load', () => {
   const names = modelViewerVariants.availableVariants;
