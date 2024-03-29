@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>&lt;matsuyo-test7&gt;</title>
+    <title>&lt;matsuyo-test8&gt;</title>
     <meta charset="utf-8">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  bottom: 18px;
+  bottom: 38px;
   left: 8px;
 }
 
@@ -51,11 +51,11 @@ button {
 
 
   <div class="controls1">
-    <div><p>上のボックスカラー: <select id="variant"></select></div>
+    <div><p>上のボックスカラー: <select id="variant1"></select></div>
   </div>
 
   <div class="controls2">
-    <div><p>下のボックスカラー: <select id="variant"></select></div>
+    <div><p>下のボックスカラー: <select id="variant2"></select></div>
   </div>
 
       <button slot="ar-button" id="ar-button">
@@ -69,8 +69,11 @@ button {
 
 <script>
 
+const modelViewerVariants = document.querySelector("model-viewer#Box001");
+const select = document.querySelector('#variant1');
+
 const modelViewerVariants = document.querySelector("model-viewer#Box002");
-const select = document.querySelector('#variant');
+const select = document.querySelector('#variant2');
 
 modelViewerVariants.addEventListener('load', () => {
   const names = modelViewerVariants.availableVariants;
